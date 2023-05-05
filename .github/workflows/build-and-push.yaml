@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} run this action
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   build-docker:
     runs-on: ubuntu-latest
