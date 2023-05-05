@@ -1,0 +1,17 @@
+name: Deploy lsyncd cluster
+run-name: ${{ github.actor }} run this action
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v3
+      - name: build and push ${{ github.repository }}
+      uses: macbre/push-to-ghcr@master
+        with:
+          image_name: ${{ github.repository }}
+          github_token: ${{ secrets.PUSH_TOKEN }}
